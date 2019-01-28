@@ -1,25 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import marked from 'marked';
+
 import './App.css';
 
+import Editor from './components/Editor/Editor';
+import Previewer from './components/Previewer/Previewer';
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputText: '',
+    };
+  }
+
+  handleInputChange = e => {
+    this.setState({
+      inputText: e.target.value,
+    });
+  };
+
+  getInputText = () => {
+    let rawMarkup = marked(this.state.inputText, { sanitize: true });
+    return { __html: rawMarkup };
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="app-container">
+        <Editor handleInputChange={this.handleInputChange} inputText={this.state.inputText}/>
+        <Previewer getInputText={this.getInputText}/>
       </div>
     );
   }
