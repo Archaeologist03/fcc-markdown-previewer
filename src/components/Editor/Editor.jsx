@@ -15,12 +15,15 @@ export class Editor extends Component {
 
   render() {
     return (
-      <div className="editor-container">
+      <div className="editor-container containers">
+        <div className="editor-title">
+          Editor
+        </div>
         <textarea
           name="xxx"
           id=""
           cols="30"
-          rows="10"
+          rows="15"
           className="editor-input"
           onChange={this.props.handleInputChange}
         >
