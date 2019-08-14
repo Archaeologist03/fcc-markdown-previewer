@@ -1,8 +1,17 @@
-Simple markdown previewer app. 
+## Markdown previewer app, done for FreeCodeCamp front-end libraries section.
 
-Requires markdown input to output the result.
+#### Requires markdown input to output the result.
 
 
-todo:
-styling,
-redux,
+### Setting up:
+
+##### 1) Clone repo:
+`git clone git@github.com:Archaeologist03/fcc-markdown-previewer.git`
+
+##### 2) Install needed packages
+`npm install`
+
+##### 3) Start app(dev)
+`npm start`
+
+
